@@ -2,24 +2,27 @@ import mongoose from "mongoose"
 
 
 const UserSchema = mongoose.Schema({
-    name:{
+    title:{
       type : String,
       required: true  
     },
-    email:{
+    text:{
         type:String,
-        unique: true,
         required: true
     },
-    password:{
-        type:String,
-        required:true,
-        select:false
+    user:{
+         type:String
     },
+    isComplete:{
+        type:Boolean,
+        default:false
+        
+    },
+
     createAt:{
         type:Date,
         default:Date.now()
     }
 })
 
- export const database = mongoose.model("user", UserSchema)
+ export const taks = mongoose.model("userTakes", UserSchema)
